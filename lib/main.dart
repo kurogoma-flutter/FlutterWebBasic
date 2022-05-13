@@ -182,19 +182,70 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           /// QA一覧
-          Container(
-            width: size.width * 0.3,
-            decoration: const BoxDecoration(
-              border: Border.symmetric(vertical: BorderSide(color: Colors.black12)),
-            ),
-            child: ListView(
-              children: const [
-                QATile(),
-                QATile(),
-                QATile(),
-                QATile(),
-                QATile(),
-              ],
+          DefaultTabController(
+            length: 4,
+            child: Container(
+              width: size.width * 0.3,
+              decoration: const BoxDecoration(
+                border: Border.symmetric(vertical: BorderSide(color: Colors.black12)),
+              ),
+              child: Column(
+                children: [
+                  const TabBar(
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.grey,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: BoxDecoration(
+                        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)), color: Colors.blueAccent),
+                    tabs: [
+                      Tab(text: "未解答"),
+                      Tab(text: "確認中"),
+                      Tab(text: "解答済"),
+                      Tab(text: "解決済"),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(physics: NeverScrollableScrollPhysics(), children: [
+                      ListView(
+                        children: const [
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                        ],
+                      ),
+                      ListView(
+                        children: const [
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                        ],
+                      ),
+                      ListView(
+                        children: const [
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                        ],
+                      ),
+                      ListView(
+                        children: const [
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                          QATile(),
+                        ],
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
             ),
           ),
 
